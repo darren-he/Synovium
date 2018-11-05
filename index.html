@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Basic Page Needs
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta charset="utf-8">
+	<title>Synovium | Coming Soon</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- FONT
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+	<!-- CSS
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/skeleton.css?v=6969">
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Raleway');
+		.grow {
+			transition: all .6s ease-in-out;
+			transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+		}
+		.grow:hover{
+			transform: scale(1.5);
+		}
+		.smalldot { 
+			width: 100%;
+			height: auto;
+			padding-top: 100%;
+			border-radius: 50%;
+			display: inline-block;
+		}
+		.container {top:-2em;}
+		.row {padding-bottom:1.5em !important;}
+		.c1 { background-color:crimson;}
+		.c2 { background-color:lightgray;}
+		.c3 { background-color:silver;}
+		.c4 { background-color:darkgray;}
+		.c5 { background-color:gray;}
+		.c6 { background-color:dimgray;}
+		
+		body {
+			overflow-y:hidden;
+			overflow-x:hidden;
+		}
+		
+		#overlay {
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			position: fixed;
+			z-index: 20;
+			background:rgba(5,5,5,0.9);
+			pointer-events : none;
+			text-align:center;
+			font-size:3em;
+			color:white;
+			display: flex;
+			/* flex-direction: column;*/
+			align-items: center; 
+			justify-content: center;
+			-webkit-transform: translate3d(0,0,0);
+			
+		}
+		
+		.logo {
+			position:fixed;
+			padding-top:100px;
+			
+		}
+		
+		.logo img {
+			width:50%;
+			-webkit-filter: drop-shadow(4px 10px 10px #fff);
+			filter: drop-shadow(4px 0px 10px #fff);
+			z-index:50000;
+		}
+		
+		@media only screen and (max-width: 900px)  {#overlay{font-size:2.5em;} .logo img{width:50%;}}
+		@media only screen and (max-width: 750px)  {#overlay{font-size:2.0em;} .logo img{width:52%;} .logo{padding-top:0px;}
+		@media only screen and (max-width: 600px)  {#overlay{font-size:1.5em;} .logo img{width:54%;} .logo{padding-top:0px;}
+		@media only screen and (max-width: 450px)  {#overlay{font-size:1.0em;} .logo img{width:56%;} .logo{padding-top:0px;}
+
+	</style>
+  
+<script type="text/javascript">
+	function insert() {
+		var block_to_insert ;
+		var columns;
+		columns="";
+		
+		divs = document.getElementsByClassName( 'row' );
+		[].slice.call( divs ).forEach(function ( div ) {
+			columns="";
+		for (var i=0; i<6; i++) {
+			columns += '<div class="two columns grow"><span class="smalldot c';
+			columns += (Math.floor(Math.random() * 6)+1).toString();
+			columns += '"></span></div>';
+		}
+			div.innerHTML = columns;
+	});
+	 }
+	 
+	function rows() {
+	var windowheight = Math.max(document.documentElement.clientHeight, window.innerHeight );
+	var windowwidth = Math.max(document.documentElement.clientWidth, window.innerWidth );
+
+	var numrows=Math.floor(windowheight/windowwidth*10);
+
+	var rowhtml="";
+	for (j=0;j<numrows;j++) {
+	rowhtml+='<div class="row" id="rowss"></div>';
+	}
+	document.getElementById('box').innerHTML=rowhtml;
+	} 
+</script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png?v=1">
+
+  
+</head>
+
+<body onload="rows(); insert();" onresize="rows(); insert();">
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div id="overlay">
+	<div class="logo"><img src="images/logowhite.png" /><br/><br/>COMING SOON</div>
+  </div>
+  <div class="container" id="box"></div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+</body>
+
+</html>
